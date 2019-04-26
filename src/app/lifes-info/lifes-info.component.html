@@ -2,28 +2,19 @@
   <div fxFlex="column">
     <mat-form-field>
       <mat-label>Número de Vidas (max. 6)</mat-label>
-      <select matNativeControl required>
-        <option value="1">1 vida</option>
-        <option value="2">2 vidas</option>
-        <option value="3">3 vidas</option>
-        <option value="3">4 vidas</option>
-        <option value="5">5 vidas</option>
-        <option value="3">6 vidas</option>
-      </select>
+      <mat-select matNativeControl required [(value)]="selectedLifes">
+        <mat-option *ngFor="let life of lifes" [value]="life.id">{{life.id}} {{life.id > 1 ? 'vidas' : 'vida'}}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
 <div fxLayout="row">
-    <mat-form-field>
-      <input matInput placeholder="Informe a Idade">
-    </mat-form-field>
-<mat-form-field>
-  <mat-label>Gênero</mat-label>
-  <select matNativeControl required>
-    <option value="outros">Outro</option>
-    <option value="masculino">Masculino</option>
-    <option value="feminino">Fêminino</option>
-  </select>
-</mat-form-field>
-
+    <mat-list *ngIf="selectedLifes">
+      <mat-list-item *ngFor="let life of lifes">
+        <mat-form-field *ngIf="life.id <= selectedLifes">
+          <input matInput placeholder="Informe a Idade da vida {{life.id}}" [value]="life.a">
+        </mat-form-field>
+      </mat-list-item>
+    </mat-list>
+    <p>{{selectedLifes}}</p>
 </div>
 </form>
