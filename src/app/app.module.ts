@@ -19,6 +19,7 @@ import { HelloComponent } from './hello.component';
 import { HomeComponent } from '../home/home.component';
 import { ISurePlansComponent } from '../isure-plans/isure-plans.component';
 import { ISurePlansService } from '../services/isure-plans.service';
+import { OperatorsCardComponent } from '../operators-card/operators-card.component';
 import 'hammerjs';
 import { LifesInfoComponent } from './lifes-info/lifes-info.component';
 import { HeaderComponent } from './header/header.component';
@@ -39,6 +40,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     MatIconModule,
     MatRadioModule,
     MatSelectModule,
+    AppRoutingModule,
     FlexLayoutModule ],
   declarations: [
     AppComponent,
@@ -46,8 +48,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     HomeComponent,
     ISurePlansComponent,
     LifesInfoComponent,
-    AppRoutingModule,
-    HeaderComponent
+    HeaderComponent,
+    OperatorsCardComponent
   ],
   providers:  [
     ISurePlansService

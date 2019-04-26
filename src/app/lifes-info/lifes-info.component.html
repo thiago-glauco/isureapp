@@ -1,27 +1,29 @@
 <form fxLayout="column">
-  <div fxFlex>
+  <div fxFlex="column">
     <mat-form-field>
-      <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="1">1</mat-radio-button>
-        <mat-radio-button value="2">2</mat-radio-button>
-        <mat-radio-button value="3">3</mat-radio-button>
-        <mat-radio-button value="4">4</mat-radio-button>
-        <mat-radio-button value="5">5</mat-radio-button>
-        <mat-radio-button value="6">6</mat-radio-button>
-      </mat-radio-group>
+      <mat-label>Número de Vidas (max. 6)</mat-label>
+      <select matNativeControl required>
+        <option value="1">1 vida</option>
+        <option value="2">2 vidas</option>
+        <option value="3">3 vidas</option>
+        <option value="3">4 vidas</option>
+        <option value="5">5 vidas</option>
+        <option value="3">6 vidas</option>
+      </select>
     </mat-form-field>
   </div>
-  <div fxLayout="row">
+<div fxLayout="row">
     <mat-form-field>
-      <input matInput placeholder="Idade">
+      <input matInput placeholder="Informe a Idade">
     </mat-form-field>
-    <mat-form-field>
-        <mat-label>Gênero</mat-label>
-        <mat-select value="selected">
-          <mat-option value="masculino">masculino</mat-option>
-          <mat-option value="feminino">feminino</mat-option>
-          <mat-option value="outro">Outros</mat-option>
-        </mat-select>
-    </mat-form-field>
-  </div>
+<mat-form-field>
+  <mat-label>Gênero</mat-label>
+  <select matNativeControl required>
+    <option value="outros">Outro</option>
+    <option value="masculino">Masculino</option>
+    <option value="feminino">Fêminino</option>
+  </select>
+</mat-form-field>
+
+</div>
 </form>
