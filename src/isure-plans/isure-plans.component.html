@@ -8,14 +8,16 @@
   </mat-expansion-panel-header>
   <img [src]="plan.image" alt="plan image"/>
   <p matLine>{{plan.description}}</p>
-  <mat-form-field>
-    <mat-label>Selecione a Operadora Desejada: </mat-label>
-    <mat-select [(ngModel)]="selectedValue" name="operadora">
-      <mat-option *ngFor="let operadora of operadoras" [value]="operadora.name">
-        {{operadora.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
+    <mat-form-field>
+      <mat-label>Selecione a Operadora Desejada: </mat-label>
+      <mat-select [(ngModel)]="operadoraSelecionada" name="operadora">
+        <mat-option *ngFor="let operadora of operadoras" [value]="operadora.name">
+          {{operadora.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  <mat-action-row>
+    <a mat-raised-button color="primary" *ngIf="operadoraSelecionada"><mat-icon>attach_money</mat-icon>Valores</a>
+  </mat-action-row>
 </mat-expansion-panel>
 </mat-accordion>

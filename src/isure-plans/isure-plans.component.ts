@@ -1,16 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ISurePlan } from '../common/isurePlan';
 import { isurePlans } from '../common/isurePlans';
 import {ISurePlansService} from '../services/isure-plans.service';
-
-const OPERADORAS = [
-  {name: 'Bradesco'},
-  {name: 'Sulamérica'},
-  {name: 'Amil'},
-  {name: 'Intermédica'},
-  {name: 'Sompo'},
-  {name: 'Unimed'}
-]
+import { Operadora } from '../common/operadora';
+import { OPERADORAS } from '../common/operadoras';
 
 @Component({
   selector: 'app-isure-plans',
@@ -21,6 +15,7 @@ const OPERADORAS = [
 export class ISurePlansComponent implements OnInit {
   isureplans: ISurePlan[];
   operadoras = OPERADORAS;
+  operadoraSelecionada: Operadora;
 
   constructor(private isurePlansService: ISurePlansService) { }
   ngOnInit() {

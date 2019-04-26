@@ -1,9 +1,9 @@
-<mat-toolbar color="primary">
-  <span><img src="/assets/images/logo.png" height=30 width=41></span>
-  <a mat-button routerLink='/home' routerLinkActive="warn"><mat-icon>home</mat-icon> Home</a>
-  <a mat-button routerLink='/about' routerLinkActive="accent"><mat-icon>perm_identity</mat-icon> About</a>
+<div class="header">
+<mat-toolbar color="primary" fxFlexLayout="row" fxFlexLayout="space-between">
+  <div fxFlex fxFlexAlign="center">
   <a mat-button routerLink='/menu' routerLinkActive="accent"><mat-icon>list</mat-icon> Menu</a>
-  <a mat-button routerLink='/contact' routerLinkActive="accent"><mat-icon>phone</mat-icon> Contact</a>
-  <span class="flex-spacer"></span>
-  <a mat-button (click)="showLoginForm()"><mat-icon>person</mat-icon> Login</a>
+  </div>
+  <span class="flex-spacer" fxFlex="70%"></span>
+  <span fxFlex fxFlexAlign="center"><img src="https://www.isure.com.br/wp-content/uploads/2017/05/logo-isure.png" height=30 width=41></span>
 </mat-toolbar>
+</div>

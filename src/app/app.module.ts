@@ -23,6 +23,8 @@ import 'hammerjs';
 import { LifesInfoComponent } from './lifes-info/lifes-info.component';
 import { HeaderComponent } from './header/header.component';
 
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 @NgModule({
   imports:    [
     BrowserModule,
@@ -44,6 +46,7 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
     ISurePlansComponent,
     LifesInfoComponent,
+    AppRoutingModule,
     HeaderComponent
   ],
   providers:  [
