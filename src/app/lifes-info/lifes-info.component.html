@@ -1,4 +1,8 @@
-<form fxLayout="column">
+<div fxLayout="column">
+  <mat-vertical-stepper>
+  <mat-step label="Numero de Vidas">
+    <p>Informe o número de vidas protegidas</p>
+    <p>Máximo de 6</p>
   <div fxFlex="column">
     <mat-form-field>
       <mat-label>Número de Vidas (max. 6)</mat-label>
@@ -7,34 +11,41 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <p>{{selectedLifes}}</p>
-<div fxLayout.lt-sm="column" fxLayout="row" *ngIf="selectedLifes">
+  </mat-step>
+  <mat-step label="Idades">
+    <p>Planos de saúde tem seu preço definido pelas idades de seus protegidos.</p>
+    <p>Informe a idade dos protegidos:</p>
+    <p>{{lifes[0].id}}</p>
   <mat-form-field fxFlex [fxHide]="selectedLifes >= 1 ? 'false' : 'true'">
-    <input matInput type="number" placeholder="Informe a Idade da vida 1" [value]="lifes[0].age">
+    <input matInput type="number" name="life1" placeholder="Informe a Idade da vida 1" [(ngModel)]="lifes[0].age" (change)="change()">
   </mat-form-field>
   <mat-form-field fxFlex [fxHide]="selectedLifes >= 2 ? 'false' : 'true'">
-    <input matInput placeholder="Informe a Idade da vida 1" [value]="lifes[0].age">
+    <input matInput type="number"  name="life2" placeholder="Informe a Idade da vida 2" [(ngModel)]="lifes[1].age" (change)="change()">
   </mat-form-field>
   <mat-form-field fxFlex [fxHide]="selectedLifes >= 3 ? 'false' : 'true'">
-    <input matInput type="number" placeholder="Informe a Idade da vida 2" [value]="lifes[0].age">
+    <input matInput type="number"  name="life3" placeholder="Informe a Idade da vida 3" [(ngModel)]="lifes[2].age" (change)="change()">
   </mat-form-field>
   <mat-form-field fxFlex [fxHide]="selectedLifes >= 4 ? 'false' : 'true'">
-    <input matInput type="number"  placeholder="Informe a Idade da vida 3" [value]="lifes[0].age">
+    <input matInput type="number"  name="life4"  placeholder="Informe a Idade da vida 4" [(ngModel)]="lifes[3].age" (change)="change()">
   </mat-form-field>
   <mat-form-field fxFlex [fxHide]="selectedLifes >= 5 ? 'false' : 'true'">
-    <input matInput type="number" placeholder="Informe a Idade da vida 4" [value]="lifes[0].age">
+    <input matInput type="number"  name="life5" placeholder="Informe a Idade da vida 5" [(ngModel)]="lifes[4].age" (change)="change()">
   </mat-form-field>
   <mat-form-field fxFlex [fxHide]="selectedLifes >= 6 ? 'false' : 'true'">
-    <input matInput type="number" placeholder="Informe a Idade da vida 5" [value]="lifes[0].age">
+    <input matInput type="number"  name="life6" placeholder="Informe a Idade da vida 6" [(ngModel)]="lifes[5].age" (change)="change()">
   </mat-form-field>
+  </mat-step>
+  <mat-step label="Operadora">
+    <p>Informe a operadora de sua preferência para calcular o orçamento</p>
     <mat-form-field>
     <mat-label>Selecione a Operadora Desejada: </mat-label>
-    <mat-select [(ngModel)]="operadoraSelecionada" name="operadora">
+    <mat-select [(ngModel)]="operadoraSelecionada" name="operadora" (selectionChange)="change()">
       <mat-option *ngFor="let operadora of operadoras" [value]="operadora.name">
         {{operadora.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
+</mat-step>
+</mat-vertical-stepper>
 </div>
-</form>
-<button mat-raised-button color="primary"><mat-icon>attach_money</mat-icon>Calcular</button>
+<button mat-raised-button color="primary" routerLink="/calc/:12"><mat-icon>attach_money</mat-icon>Calcular</button>

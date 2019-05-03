@@ -1,6 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Operadora } from '../../common/operadora';
 import { OPERADORAS } from '../../common/operadoras';
+import { RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import {CalculationService} from '../../services/calculation.service';
 
 @Component({
   selector: 'app-lifes-info',
@@ -20,12 +24,25 @@ export class LifesInfoComponent implements OnInit {
   ];
   operadoras: Operadora[] = OPERADORAS;
   operadoraSelecionada: Operadora;
-
-  constructor() { 
-
+  calcObject = {
+        'lifes': [],
+        operadora: {}
+    };
+  
+  constructor(
+      private location: Location,
+      private calculation: CalculationService,
+    ) { 
+      this.calcObject.lifes = this.lifes;
   }
 
   ngOnInit() {
+  }
+
+  change() {
+    this.calcObject.operadora = this.operadoraSelecionada;
+    console.log(this.calcObject);
+    console.log(this.calculation.getResult());
   }
 
 }
