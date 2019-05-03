@@ -7,14 +7,34 @@
       </mat-select>
     </mat-form-field>
   </div>
-<div fxLayout="row">
-    <mat-list *ngIf="selectedLifes">
-      <mat-list-item *ngFor="let life of lifes">
-        <mat-form-field *ngIf="life.id <= selectedLifes">
-          <input matInput placeholder="Informe a Idade da vida {{life.id}}" [value]="life.age">
-        </mat-form-field>
-      </mat-list-item>
-    </mat-list>
+  <p>{{selectedLifes}}</p>
+<div fxLayout.lt-sm="column" fxLayout="row" *ngIf="selectedLifes">
+  <mat-form-field fxFlex [fxHide]="selectedLifes >= 1 ? 'false' : 'true'">
+    <input matInput type="number" placeholder="Informe a Idade da vida 1" [value]="lifes[0].age">
+  </mat-form-field>
+  <mat-form-field fxFlex [fxHide]="selectedLifes >= 2 ? 'false' : 'true'">
+    <input matInput placeholder="Informe a Idade da vida 1" [value]="lifes[0].age">
+  </mat-form-field>
+  <mat-form-field fxFlex [fxHide]="selectedLifes >= 3 ? 'false' : 'true'">
+    <input matInput type="number" placeholder="Informe a Idade da vida 2" [value]="lifes[0].age">
+  </mat-form-field>
+  <mat-form-field fxFlex [fxHide]="selectedLifes >= 4 ? 'false' : 'true'">
+    <input matInput type="number"  placeholder="Informe a Idade da vida 3" [value]="lifes[0].age">
+  </mat-form-field>
+  <mat-form-field fxFlex [fxHide]="selectedLifes >= 5 ? 'false' : 'true'">
+    <input matInput type="number" placeholder="Informe a Idade da vida 4" [value]="lifes[0].age">
+  </mat-form-field>
+  <mat-form-field fxFlex [fxHide]="selectedLifes >= 6 ? 'false' : 'true'">
+    <input matInput type="number" placeholder="Informe a Idade da vida 5" [value]="lifes[0].age">
+  </mat-form-field>
+    <mat-form-field>
+    <mat-label>Selecione a Operadora Desejada: </mat-label>
+    <mat-select [(ngModel)]="operadoraSelecionada" name="operadora">
+      <mat-option *ngFor="let operadora of operadoras" [value]="operadora.name">
+        {{operadora.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 </form>
 <button mat-raised-button color="primary"><mat-icon>attach_money</mat-icon>Calcular</button>
