@@ -16,15 +16,21 @@ const PLANOS: Plano[] = [
   }
 ]
 
+const planToCalc = [];
 @Injectable()
 export class CalculationService {
 
-
+  
 
   constructor() { }
 
-  getResult(): string {
-    return "resultado dos planos" 
+  getResult() {
+    return planToCalc; 
+  }
+
+  saveCalc( planData ) {
+   planToCalc.push(planData);
+    console.log(planToCalc);
   }
 
 }

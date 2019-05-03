@@ -45,7 +45,8 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <button mat-raised-button *ngIf="operadoraSelecionada" color="primary" routerLink='/calc'><mat-icon>attach_money</mat-icon>Calcular</button>
 </mat-step>
 </mat-vertical-stepper>
 </div>
-<button mat-raised-button color="primary" routerLink="/calc/:12"><mat-icon>attach_money</mat-icon>Calcular</button>
+

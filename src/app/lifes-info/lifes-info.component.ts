@@ -44,5 +44,8 @@ export class LifesInfoComponent implements OnInit {
     console.log(this.calcObject);
     console.log(this.calculation.getResult());
   }
+  calc( ) {
+    this.calculation.saveCalc(this.calcObject);
+  }
 
 }
