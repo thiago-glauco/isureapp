@@ -41,6 +41,7 @@ export class LifesInfoComponent implements OnInit {
 
   change() {
     this.calcObject.operadora = this.operadoraSelecionada;
+    this.calc()
     console.log(this.calcObject);
     console.log(this.calculation.getResult());
   }
