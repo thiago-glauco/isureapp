@@ -1,3 +1,6 @@
+/*
+O calculation card apresentará os valores de orçamento do planos para os usuários dos planos.
+*/
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
