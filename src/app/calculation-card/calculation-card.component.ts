@@ -40,7 +40,7 @@ export class CalculationCardComponent implements OnInit {
     this.calculationData = this.calculationService.getResult();
     console.log("here");
     for(let life of this.calculationData.lifes) {
-      if( life.age ) {
+      if( life.age || life.age === 0) {
         if ( life.age >=  this.selectedPlan.lifeTable[0].min && life.age <=  this.selectedPlan.lifeTable[0].max) {
           console.log(life.age);
           console.log(this.selectedPlan.lifeTable[0])
