@@ -1,6 +1,6 @@
 //Mock dos planos de saúde que será implantado depois no firebase.
 
-[
+export const PlansMock = [
   {Amil: {
       Amil200: {
         operadora: 'Amil',
@@ -89,9 +89,5 @@
         ],
       }
     }
-  },
-  {Bradesco: {
-
-  }
   }
 ]

@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { CalculationService } from '../../services/calculation.service';
 import { FAIXA_ETARIA } from '../../common/faixa-etaria';
 import { Plano } from '../../common/plano';
+import { PlansMock } from '../../common/PlansMock';
 
 const PLANOS: Plano[] = [
   {
@@ -37,9 +38,10 @@ export class CalculationCardComponent implements OnInit {
     ) { }
 
   ngOnInit( ) {
+
     this.calculationData = this.calculationService.getResult();
-    console.log("here");
-    for(let life of this.calculationData.lifes) {
+    
+    for(let life of this.calculationData[0].lifes) {
       if( life.age || life.age === 0) {
         if ( life.age >=  this.selectedPlan.lifeTable[0].min && life.age <=  this.selectedPlan.lifeTable[0].max) {
           console.log(life.age);

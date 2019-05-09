@@ -16,7 +16,7 @@ const PLANOS: Plano[] = [
   }
 ]
 
-var planToCalc = [];
+var planToCalc: any[] = [];
 @Injectable()
 export class CalculationService {
 
