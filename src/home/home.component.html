@@ -28,11 +28,11 @@
         {{(user | json)}}
     </mat-card-content>
       <mat-card-actions fxLayout="row wrap" fxLayout.lt-sm="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
-          <button fxFlex mat-raised-button color="primary" onclick="login()"><mat-icon>home_outline</mat-icon> Login</button>
+          <button fxFlex mat-raised-button color="primary" (click)="login()"><mat-icon>home_outline</mat-icon> Login</button>
 
-          <button fxFlex mat-raised-button color="primary" onclick="alert('Hello')">Sobre Nós</button>
-          <button fxFlex mat-raised-button color="primary" onclick="alert('Hello')">Registre-se</button>
-          <button fxFlex mat-raised-button color="primary" onclick="alert('Hello')">Contato</button>
+          <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Sobre Nós</button>
+          <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Registre-se</button>
+          <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Contato</button>
       </mat-card-actions>
   </mat-card>
 </div>

@@ -10,7 +10,7 @@ import { auth } from 'firebase/app';
 })
 export class HomeComponent implements OnInit {
   CompanyName: String = "ISure";
-  user: User = {email: '', password: ''};
+  user: User = {email: '', password: '', uid: ''};
 
   constructor(public afAuth: AngularFireAuth) { }
 
@@ -20,7 +20,12 @@ export class HomeComponent implements OnInit {
 
   login( ) {
     this.afAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password)
-      .then( credential => console.dir(credential))
+      .then( credential => {
+        console.dir(credential)
+        this.user.uid = credential.user.uid;
+        console.log(credential.user.metadata.lastSignInTime)
+        })
+      .catch( error => alert(error));
   }
 
 }
