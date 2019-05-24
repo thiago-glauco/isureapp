@@ -14,6 +14,12 @@ import { MatListModule } from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 
+//FireBase imports:
+import { environment } from '../common/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth'
+
+
 import { ISurePlansService } from '../services/isure-plans.service';
 import { CalculationService } from '../services/calculation.service';
 
@@ -35,7 +41,9 @@ import { CalculationCardComponent } from './calculation-card/calculation-card.co
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
+    AngularFireModule.initializeApp(environment.firebase),//Initializing Firebase services
+    AngularFireAuthModule,
+    MatToolbarModule, //Material Design imports
     MatCardModule,
     MatButtonModule,
     MatInputModule,
@@ -47,7 +55,8 @@ import { CalculationCardComponent } from './calculation-card/calculation-card.co
     AppRoutingModule,
     MatListModule,
     MatStepperModule,
-    FlexLayoutModule ],
+    FlexLayoutModule //Flex Layout import
+  ],
   declarations: [
     AppComponent,
     HelloComponent,

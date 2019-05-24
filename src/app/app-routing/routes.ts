@@ -12,5 +12,5 @@ export const routes: Routes = [
   { path: 'plans', component: ISurePlansComponent },
   { path: 'card',     component: OperatorsCardComponent },
   { path: 'calc', component: CalculationCardComponent},
-  { path: '', redirectTo: '/plans', pathMatch: 'full'}
+  { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];

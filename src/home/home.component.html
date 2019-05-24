@@ -1,10 +1,3 @@
-<div fxLayout="row" fxLayoutGap="1%">
-  <div fxFlex >
-    <mat-toolbar color="primary">
-      <span >{{CompanyName}} App</span>
-    </mat-toolbar>
-  </div>
-</div>
 <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="1%" fxLayoutAlign="center center">
   <mat-card>
     <mat-card-header>
@@ -18,23 +11,28 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <div fxLayout="column">
+      <div fxLayout="row" fxLayoutGap="5px">
+        <img src="https://media.istockphoto.com/photos/medical-technology-concept-electronic-medical-record-picture-id872676342" mat-card-lg-image>
+        <div fxLayout="column" >
         <mat-form-field>
-            <input matInput placeholder="Email">
+            <input matInput type="email" placeholder="Email" [(ngModel)]="user.email">
             <mat-icon matPrefix >mail_outline</mat-icon>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Senha" type="password">
+            <input matInput placeholder="Senha" type="password" [(ngModel)]="user.password">
             <mat-icon matPrefix >lock</mat-icon>
             <mat-icon matSuffix >visibility_off</mat-icon>
           </mat-form-field>
         </div>
+        </div>
+        {{(user | json)}}
     </mat-card-content>
-      <mat-card-actions fxLayout="row" fxLayout.lt-sm="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="1%">
-          <button mat-raised-button color="primary" onclick="alert('Hello')"><mat-icon>home_outline</mat-icon> Login</button>
-          <button mat-raised-button color="primary" onclick="alert('Hello')">Sobre Nós</button>
-          <button mat-raised-button color="primary" onclick="alert('Hello')">Registre-se</button>
-          <button mat-raised-button color="primary" onclick="alert('Hello')">Fale Conosoco</button>
+      <mat-card-actions fxLayout="row wrap" fxLayout.lt-sm="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
+          <button fxFlex mat-raised-button color="primary" onclick="login()"><mat-icon>home_outline</mat-icon> Login</button>
+
+          <button fxFlex mat-raised-button color="primary" onclick="alert('Hello')">Sobre Nós</button>
+          <button fxFlex mat-raised-button color="primary" onclick="alert('Hello')">Registre-se</button>
+          <button fxFlex mat-raised-button color="primary" onclick="alert('Hello')">Contato</button>
       </mat-card-actions>
   </mat-card>
 </div>
