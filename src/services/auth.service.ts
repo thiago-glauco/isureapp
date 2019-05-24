@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import {User} from '../common/user';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -12,16 +13,22 @@ export class AuthService {
     uid: ''
   }
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth,
+    private router: Router
+  ) { }
   
   authentication( user: User ) {
-      this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
+      return this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
       .then( credential => {
         console.dir(credential)
         this.user.uid = credential.user.uid;
         this.user.email = credential.user.email;
-        console.log(credential.user.metadata.lastSignInTime)
+        this.user.lastSignIn = credential.user.metadata.lastSignInTime;
+        console.log(credential.user.metadata.lastSignInTime);
+        return credential;
         })
-      .catch( error => alert(error));
+      .catch( error => {alert(error); 
+        return error;
+      });
   }
 }
