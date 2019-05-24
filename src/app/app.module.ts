@@ -35,6 +35,8 @@ import { HeaderComponent } from './header/header.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { CalculationCardComponent } from './calculation-card/calculation-card.component';
+import { UserHomeComponent } from '../user-home/user-home';
+import { RegisterComponent } from '../register/register';
 
 @NgModule({
   imports:    [
@@ -65,7 +67,9 @@ import { CalculationCardComponent } from './calculation-card/calculation-card.co
     LifesInfoComponent,
     HeaderComponent,
     OperatorsCardComponent,
-    CalculationCardComponent
+    CalculationCardComponent,
+    UserHomeComponent,
+    RegisterComponent
   ],
   providers:  [
     ISurePlansService,
