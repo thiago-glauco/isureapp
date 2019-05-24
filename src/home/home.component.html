@@ -37,10 +37,12 @@
               #loginPass='ngModel'
               [(ngModel)]=user.password
               required
-              minlenght="5"
+              minlength="5"
               maxlength="10">
             <mat-icon matPrefix >lock</mat-icon>
             <mat-icon matSuffix >visibility_off</mat-icon>
+            <mat-error
+            *ngIf="(loginPass.hasError('minlength') || loginPass.hasError('maxlength')) && loginPass.dirty">Informe sua senha de login</mat-error>
           </mat-form-field>
         </div>
         </div>
