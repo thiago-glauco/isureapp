@@ -22,6 +22,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
 
 import { ISurePlansService } from '../services/isure-plans.service';
 import { CalculationService } from '../services/calculation.service';
+import { AuthService } from '../services/auth.service';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
@@ -73,7 +74,8 @@ import { RegisterComponent } from '../register/register.component';
   ],
   providers:  [
     ISurePlansService,
-    CalculationService
+    CalculationService,
+    AuthService
   ],
   bootstrap:    [ AppComponent ]
 })

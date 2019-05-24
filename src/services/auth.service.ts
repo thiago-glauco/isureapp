@@ -13,6 +13,7 @@ export class AuthService {
   }
 
   constructor(private afAuth: AngularFireAuth) { }
+  
   authentication( user: User ) {
       this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
       .then( credential => {

@@ -12,14 +12,14 @@ export class HomeComponent implements OnInit {
   CompanyName: String = "ISure";
   user: User = {email: '', password: '', uid: ''};
 
-  constructor(private userAuth ) { }
+  constructor(private userAuth: AuthService ) { }
 
   ngOnInit() {
 
   }
 
   login( ) {
-    this.userAuth.authentication( user );
+    this.userAuth.authentication( this.user );
   }
 
 }
