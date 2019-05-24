@@ -1,4 +1,5 @@
 <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="1%" fxLayoutAlign="center center">
+  <form #loginForm='ngForm' (ngSubmit)="login()">
   <mat-card>
     <mat-card-header>
       <mat-card-title-group>
@@ -15,11 +16,29 @@
         <img src="https://media.istockphoto.com/photos/medical-technology-concept-electronic-medical-record-picture-id872676342" mat-card-lg-image>
         <div fxLayout="column" >
         <mat-form-field>
-            <input matInput type="email" placeholder="Email" [(ngModel)]="user.email">
+            <input matInput id="loginMail"
+              name="email"
+              #loginMail='ngModel'
+              type="email"
+              placeholder="Email"
+              [(ngModel)]=user.email
+              required
+              email
+              minlength="4">
             <mat-icon matPrefix >mail_outline</mat-icon>
+            <mat-error
+            *ngIf="(loginMail.hasError('minlength') || loginMail.hasError('required') || loginMail.hasError('email')) && loginMail.dirty">Informe seu e-mail de login</mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Senha" type="password" [(ngModel)]="user.password">
+            <input matInput id="loginPass"
+              name="loginPass"
+              placeholder="Senha"
+              type="password"
+              #loginPass='ngModel'
+              [(ngModel)]=user.password
+              required
+              minlenght="5"
+              maxlength="10">
             <mat-icon matPrefix >lock</mat-icon>
             <mat-icon matSuffix >visibility_off</mat-icon>
           </mat-form-field>
@@ -28,11 +47,14 @@
         {{(user | json)}}
     </mat-card-content>
       <mat-card-actions fxLayout="row wrap" fxLayout.lt-sm="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
-          <button fxFlex mat-raised-button color="primary" (click)="login()"><mat-icon>home_outline</mat-icon> Login</button>
+          <button fxFlex mat-raised-button color="primary"
+            type="submit" [disabled]="loginForm.status === 'INVALID'">
+              <mat-icon>home_outline</mat-icon> Login</button>
 
           <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Sobre Nós</button>
           <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Registre-se</button>
           <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Contato</button>
       </mat-card-actions>
   </mat-card>
+  </form>
 </div>
