@@ -7,15 +7,16 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class UserDataService {
   usersRef: AngularFireList<User>;
+  userRef: AngularFireList<User>;
   user: Observable<any>;
 
   constructor( private userDB: AngularFireDatabase) {
-    
+    this.usersRef = this.userDB.list('/users');
   }
 
   getUserData(uid: string) {
-    this.usersRef = this.userDB.list('/users', ref => ref.orderByChild('uid').equalTo(uid).limitToLast(1));
-    return  this.usersRef.snapshotChanges();
+    this.userRef = this.userDB.list('/users', ref => ref.orderByChild('uid').equalTo(uid).limitToLast(1));
+    return  this.userRef.snapshotChanges();
     /*
     this.user.subscribe(
       (user) => console.dir(user)
@@ -26,5 +27,8 @@ export class UserDataService {
 
   setUserData(Key) {
 
+  }
+  createUserData(user: User){
+    this.userRef.push(user);
   }
 }

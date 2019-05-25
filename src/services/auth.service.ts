@@ -43,6 +43,7 @@ export class AuthService {
                 //yes, we have user data
                 console.log(this.userData)
               } else {
+                this.userDataService.createUserData(this.user);
                 //we dont have user data yet
               }
               
