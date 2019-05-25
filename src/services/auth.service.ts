@@ -52,6 +52,9 @@ export class AuthService {
   }
   logout() {
     //firebase logout data
+    /this.afAuth.authState.subscribe(
+      (authInfo) => console.dir(authInfo)
+    )
     this.afAuth.auth.signOut().then(
       (logedOut) => {
         console.log("Login Out");
