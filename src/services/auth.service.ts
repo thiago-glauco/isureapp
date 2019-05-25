@@ -8,14 +8,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
 
-  user: User = {
-    email: '',
-    password: '', //change this in near future for security reasons
-    uid: '',
-    creationTime: '',
-    lastSignIn: '',
-    error: false
-  }
+  user: User = new User();
   userData = { //Database User data
     key: "",
     payload: {}
@@ -41,7 +34,8 @@ export class AuthService {
                 this.userData.key = userData[0].key;
                 this.userData.payload = userData[0].payload.val();
                 //yes, we have user data
-                console.log(this.userData)
+                console.log("User data from database is: ");
+                console.log(this.userData);
               } else {
                 this.userDataService.createUserData(this.user);
                 //we dont have user data yet
@@ -55,5 +49,21 @@ export class AuthService {
       .catch( error => {alert(error); 
         return error;
       });
+  }
+  logout() {
+    //firebase logout data
+    this.afAuth.auth.signOut().then(
+      (logedOut) => {
+        console.log("Login Out");
+        console.dir(logedOut);
+        console.log("user is now empty");
+        //empting locar data
+        this.user = new User();
+        this.userData = { //Database User data
+          key: "",
+          payload: {}
+        }
+      }
+    )
   }
 }
