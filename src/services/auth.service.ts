@@ -18,6 +18,10 @@ export class AuthService {
     private router: Router,
     private userDataService: UserDataService
   ) { }
+
+  isUserSignedIn( ) {
+    return this.afAuth.auth.currentUser;
+  }
   
   authentication( user: User ) {
       return this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
@@ -52,9 +56,9 @@ export class AuthService {
   }
   logout() {
     //firebase logout data
-    /this.afAuth.authState.subscribe(
+    /*this.afAuth.authState.subscribe(
       (authInfo) => console.dir(authInfo)
-    )
+    )*/
     this.afAuth.auth.signOut().then(
       (logedOut) => {
         console.log("Login Out");

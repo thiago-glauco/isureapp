@@ -18,7 +18,14 @@ export class HomeComponent implements OnInit {
   private router: Router ) { }
 
   ngOnInit() {
-
+    let signedUser = this.userAuth.isUserSignedIn();
+    if( signedUser ) {
+      console.log("User is signed");
+      console.dir( signedUser );
+      
+    } else {
+      console.log("there is no user signed");
+    }
   }
 
   login( ) {
