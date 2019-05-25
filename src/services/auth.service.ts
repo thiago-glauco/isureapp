@@ -16,6 +16,10 @@ export class AuthService {
     lastSignIn: '',
     error: false
   }
+  userData = { //Database User data
+    key: "",
+    payload: {}
+  }
 
   constructor(private afAuth: AngularFireAuth,
     private router: Router,
@@ -32,7 +36,17 @@ export class AuthService {
         this.user.creationTime = credential.user.metadata.creationTime;
         this.userDataService.getUserData(this.user.uid)
           .subscribe(
-            userData => console.log(userData)
+            userData => {
+              if( userData.length ) {
+                this.userData.key = userData[0].key;
+                this.userData.payload = userData[0].payload.val();
+                //yes, we have user data
+                console.log(this.userData)
+              } else {
+                //we dont have user data yet
+              }
+              
+            }
           );
         console.log(credential.user.metadata.lastSignInTime);
         return credential;

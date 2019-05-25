@@ -14,7 +14,8 @@ export class UserDataService {
   }
 
   getUserData(uid: string) {
-    return  this.userDB.list('/users', ref => ref.orderByChild('uid').equalTo(uid).limitToLast(1)).snapshotChanges();
+    this.usersRef = this.userDB.list('/users', ref => ref.orderByChild('uid').equalTo(uid).limitToLast(1));
+    return  this.usersRef.snapshotChanges();
     /*
     this.user.subscribe(
       (user) => console.dir(user)
