@@ -27,7 +27,7 @@
               minlength="4">
             <mat-icon matPrefix >mail_outline</mat-icon>
             <mat-error
-            *ngIf="(loginMail.hasError('minlength') || loginMail.hasError('required') || loginMail.hasError('email')) && loginMail.dirty">Informe seu e-mail de login</mat-error>
+            *ngIf="(loginMail.hasError('minlength') || loginMail.hasError('required') || loginMail.hasError('email')) && loginMail.touched">Informe seu e-mail de login</mat-error>
           </mat-form-field>
           <mat-form-field>
             <input matInput id="loginPass"
@@ -42,8 +42,9 @@
             <mat-icon matPrefix >lock</mat-icon>
             <mat-icon matSuffix >visibility_off</mat-icon>
             <mat-error
-            *ngIf="(loginPass.hasError('minlength') || loginPass.hasError('maxlength')) && loginPass.dirty">Informe sua senha de login</mat-error>
+            *ngIf="(loginPass.hasError('minlength') || loginPass.hasError('maxlength')) && loginPass.touched">Informe sua senha de login</mat-error>
           </mat-form-field>
+          <mat-error *ngIf='error'>Usuário ou senha informados são inválidos</mat-error>
         </div>
         </div>
         {{(user | json)}}

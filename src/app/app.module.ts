@@ -18,11 +18,13 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { environment } from '../common/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth'
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 
 import { ISurePlansService } from '../services/isure-plans.service';
 import { CalculationService } from '../services/calculation.service';
 import { AuthService } from '../services/auth.service';
+import { UserDataService } from '../services/user-data.service';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
@@ -46,6 +48,7 @@ import { RegisterComponent } from '../register/register.component';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),//Initializing Firebase services
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     MatToolbarModule, //Material Design imports
     MatCardModule,
     MatButtonModule,
@@ -75,7 +78,8 @@ import { RegisterComponent } from '../register/register.component';
   providers:  [
     ISurePlansService,
     CalculationService,
-    AuthService
+    AuthService,
+    UserDataService
   ],
   bootstrap:    [ AppComponent ]
 })

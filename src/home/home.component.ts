@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   CompanyName: String = "ISure";
-  user: User = {email: '', password: '', uid: ''};
+  user: User = {email: '', password: '', uid: '', lastSignIn: '', };
+  error: boolean = false;
 
   constructor(private userAuth: AuthService,
   private router: Router ) { }
@@ -26,11 +27,16 @@ export class HomeComponent implements OnInit {
         console.log("the result is ");
         console.dir(result);
         if( result.user) {
+          this.user.password = '';
           this.router.navigate(['/user-home']);
+        } else {
+          this.error = true;
+          console.log(this.error);
         }
       })
       .catch( (error) => {
         console.log('error');
+        
       })
   }
 
