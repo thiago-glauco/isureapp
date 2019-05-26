@@ -29,6 +29,6 @@ export class UserDataService {
 
   }
   createUserData(user: User){
-    this.userRef.push(user);
+    return this.userRef.push(user).key;
   }
 }

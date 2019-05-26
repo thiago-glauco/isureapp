@@ -32,20 +32,8 @@ export class AuthService {
         this.user.lastSignIn = credential.user.metadata.lastSignInTime;
         this.user.creationTime = credential.user.metadata.creationTime;
         this.userDataService.getUserData(this.user.uid)
-          .subscribe(
-            userData => {
-              if( userData.length ) {
-                this.userData.key = userData[0].key;
-                this.userData.payload = userData[0].payload.val();
-                //yes, we have user data
-                console.log("User data from database is: ");
-                console.log(this.userData);
-              } else {
-                this.userDataService.createUserData(this.user);
-                //we dont have user data yet
-              }
-              
-            }
+          .subscribe( (data) =>
+            this.getCurrentUserData( data )
           );
         console.log(credential.user.metadata.lastSignInTime);
         return credential;
@@ -54,6 +42,24 @@ export class AuthService {
         return error;
       });
   }
+
+  getCurrentUserData( data ) {
+    //If user exists in the database we get its data and save at userData
+    if( data.length ) {
+      this.userData.key = data[0].key;
+      this.userData.payload = data[0].payload.val();
+      //yes, we have user data
+      console.log("User data from database is: ");
+      console.log(this.userData);
+    } else {
+      //If user doen't exists in the database we create it
+      this.userData.key = this.userDataService.createUserData(this.user);
+      this.userData.payload = this.user;
+      console.dir("creation key is: " + this.userData.key )
+      //we dont have user data yet
+    }
+  }
+
   logout() {
     //firebase logout data
     /*this.afAuth.authState.subscribe(
