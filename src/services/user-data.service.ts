@@ -31,4 +31,8 @@ export class UserDataService {
   createUserData(user: User){
     return this.usersRef.push(user).key;
   }
+  
+  lastUserLogin(key, lastLogin) {
+    this.usersRef.update(key, {lastSignIn: lastLogin});
+  }
 }

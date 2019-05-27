@@ -84,6 +84,10 @@ export class AuthService {
     )
   }
 
+  updateLastAuthTime() {
+    this.userDataService.lastUserLogin(this.userData.key, this.user.lastSignIn);
+  }
+
   createUser(email, password) {
     console.log("user to be created: ")
     console.dir(this.user)
