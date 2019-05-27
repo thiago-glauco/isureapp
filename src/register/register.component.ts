@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   formRegister = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100), Validators.pattern('[a-zA-Z ]*')]],
+    name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
     cpf: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(11), Validators.pattern('[0-9 ]*')]],
     cel: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(15), Validators.pattern('[0-9 ]*')]],
     email: ['', [Validators.required, Validators.minLength(4)]],
@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
       this.authService.user.cel = this.formRegister.controls.cel.value;
       registrationResult = this.authService.createUser( this.formRegister.controls.email.value, this.formRegister.controls.passwd.value)
       .then( (result) => {
-        this.router.navigate([``])
+        this.router.navigate([`/user-home`])
       })
       .catch((error) => alert("Não foi possível registrar este usuário: " + JSON.stringify(error)));
     }
