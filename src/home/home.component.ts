@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
         console.dir(result);
         if( result.user) {
           this.user.password = '';
-          this.userAuth.updateLastAuthTime();
           this.router.navigate(['/user-home']);
         } else {
           this.error = true;
