@@ -68,7 +68,7 @@
               name="confirm_password"
               placeholder="Confirme sua senha"
               type="password"
-              formControleName="confirm_passwd">
+              formControlName="confirm_passwd">
             <mat-icon matPrefix >lock</mat-icon>
             <mat-error *ngIf="formRegister.controls.confirm_passwd.errors">A senha deve ter de 5 a 10 caracteres.</mat-error>
           </mat-form-field>
@@ -81,12 +81,10 @@
     </mat-card-content>
       <mat-card-actions fxLayout="row wrap" fxLayout.lt-sm="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
           <button fxFlex mat-raised-button color="primary"
-            type="submit">
-              <mat-icon>check</mat-icon> Register</button>
+            type="submit" [disabled]="!formRegister.valid">
+              <mat-icon>check</mat-icon> Registrar</button>
 
-          <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Sobre Nós</button>
-          <button fxFlex mat-raised-button color="primary" (click)="register()">Registre-se</button>
-          <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Contato</button>
+          <button fxFlex mat-raised-button color="primary" (click)="voltar()"><mat-icon>chevron_left</mat-icon> Voltar</button>
       </mat-card-actions>
   </mat-card>
   </form>

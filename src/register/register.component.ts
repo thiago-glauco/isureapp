@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    if( this.formRegister.controls.passwd !== this.formRegister.controls.confirm_passwd) {
+    if( this.formRegister.controls.passwd.value !== this.formRegister.controls.confirm_passwd.value) {
       this.errors.passwd = true
     } else {
       this.errors.passwd = false
