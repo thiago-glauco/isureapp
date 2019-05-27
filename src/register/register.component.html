@@ -20,16 +20,17 @@
               placeholder="Informe seu nome completo"
               formControlName="name">
             <mat-icon matPrefix >person</mat-icon>
-            <mat-error *ngIf="">Informe seu nome completo.</mat-error>
+            <mat-error *ngIf="formRegister.controls.name.errors">Informe seu nome completo.</mat-error>
 
           </mat-form-field>
           <mat-form-field>
             <input fxFlex matInput id="cpf"
               name="cpf"
               placeholder="Informe seu CPF"
-              type="number"
+              type="text"
               formControlName="cpf">
             <mat-icon matPrefix >account_box</mat-icon>
+            <mat-error *ngIf="formRegister.controls.cpf.errors">Informe seu cpf - somente números.</mat-error>
 
           </mat-form-field>
 
@@ -38,17 +39,18 @@
               name="cel"
               placeholder="Informe um celular"
               type="text"
-              formControleName="cel">
+              formControlName="cel">
             <mat-icon matPrefix >phone</mat-icon>
-
+            <mat-error *ngIf="formRegister.controls.cel.errors">Informe seu celular.</mat-error>
           </mat-form-field>
           <mat-form-field>
             <input fxFlex matInput id="email"
               name="email"
               placeholder="Informe um email válido"
               type="email"
-              formControleName="email">
+              formControlName="email">
             <mat-icon matPrefix >email</mat-icon>
+            <mat-error *ngIf="formRegister.controls.email.errors">Informe seu email.</mat-error>
 
           </mat-form-field>
           <mat-form-field >
@@ -56,8 +58,9 @@
               name="password"
               placeholder="Crie uma senha"
               type="password"
-              formControleName="passwd">
+              formControlName="passwd">
             <mat-icon matPrefix >lock</mat-icon>
+            <mat-error *ngIf="formRegister.controls.passwd.errors">A senha deve ter de 5 a 10 caracteres.</mat-error>
 
           </mat-form-field>
           <mat-form-field>
@@ -67,8 +70,9 @@
               type="password"
               formControleName="confirm_passwd">
             <mat-icon matPrefix >lock</mat-icon>
-
+            <mat-error *ngIf="formRegister.controls.confirm_passwd.errors">A senha deve ter de 5 a 10 caracteres.</mat-error>
           </mat-form-field>
+          <mat-error *ngIf="errors.passwd">Senha e confirmação de senha devem ser idênticas.</mat-error>
         </div>
         </div>
          Form Status: {{ formRegister.status }}
