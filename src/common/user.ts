@@ -1,7 +1,8 @@
 export class User {
   email: string;
   name: string;
-  cel: number;
+  cel: string;
+  cpf: string;
   password: string;
   uid: string;
   lastSignIn: string;

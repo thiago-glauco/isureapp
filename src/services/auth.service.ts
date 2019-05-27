@@ -24,8 +24,10 @@ export class AuthService {
   }
   
   authentication( user: User ) {
+    //Authenticat user with email and password
       return this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
       .then( credential => {
+        //get credentials and save at user.
         console.dir(credential)
         this.user.uid = credential.user.uid;
         this.user.email = credential.user.email;
@@ -81,14 +83,24 @@ export class AuthService {
   }
 
   createUser(email, password) {
-    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then( (result) => {
-        console.log("criando usuário: ")
-        console.dir(result)
+    //cria usuário no serviço de autenticação
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then( (credential) => {
+        console.log("criando usuário: ");
+        console.dir(credential);
+        //copia dados do serviço de autenticação para o objeto usuario
+        this.user.uid = credential.user.uid;
+        this.user.email = credential.user.email;
+        this.user.lastSignIn = credential.user.metadata.lastSignInTime;
+        this.user.creationTime = credential.user.metadata.creationTime;
+        //salva dados do usuário no banco de dados do usuário
+        this.userData.key = this.userDataService.createUserData(this.user);
+        this.userData.payload = this.user;
       })
       .catch( (error) => {
         console.log("erro ao criar usuário: ");
-        console.dir(error)
+        console.dir(error);
+        alert("Não foi possível registrar este usuário: " + JSON.stringify(error))
       });
   }
 }

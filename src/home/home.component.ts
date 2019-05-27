@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
       console.log("User is signed");
       console.dir( signedUser );
       
+      
     } else {
       console.log("there is no user signed");
     }

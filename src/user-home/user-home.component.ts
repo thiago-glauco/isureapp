@@ -11,6 +11,7 @@ import { User } from '../common/user';
 export class UserHomeComponent implements OnInit {
 
   user: User = this.authService.user;
+  
   constructor(
     private authService: AuthService,
     private router: Router) { }
