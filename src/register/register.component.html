@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="1%" fxLayoutAlign="center center" >
-  <form [formGroup]="formRegister">
+  <form novalidate [formGroup]="formRegister" (ngSubmit)="onSubmit()">
   <mat-card>
     <mat-card-header>
       <mat-card-title-group>
@@ -16,14 +16,15 @@
         <img src="https://media.istockphoto.com/photos/medical-technology-concept-electronic-medical-record-picture-id872676342" mat-card-lg-image>
         <div fxLayout="column" >
         <mat-form-field>
-            <input matInput id="name"
-            placeholder="Informe seu nome completo"
+            <input fxFlex matInput id="name"
+              placeholder="Informe seu nome completo"
               formControlName="name">
             <mat-icon matPrefix >person</mat-icon>
+            <mat-error *ngIf="">Informe seu nome completo.</mat-error>
 
           </mat-form-field>
           <mat-form-field>
-            <input matInput id="cpf"
+            <input fxFlex matInput id="cpf"
               name="cpf"
               placeholder="Informe seu CPF"
               type="number"
@@ -33,7 +34,7 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput id="cel"
+            <input fxFlex matInput id="cel"
               name="cel"
               placeholder="Informe um celular"
               type="text"
@@ -42,7 +43,7 @@
 
           </mat-form-field>
           <mat-form-field>
-            <input matInput id="email"
+            <input fxFlex matInput id="email"
               name="email"
               placeholder="Informe um email válido"
               type="email"
@@ -50,8 +51,8 @@
             <mat-icon matPrefix >email</mat-icon>
 
           </mat-form-field>
-          <mat-form-field>
-            <input matInput id="password"
+          <mat-form-field >
+            <input fxFlex matInput id="password"
               name="password"
               placeholder="Crie uma senha"
               type="password"
@@ -60,8 +61,8 @@
 
           </mat-form-field>
           <mat-form-field>
-            <input matInput id="password"
-              name="password"
+            <input fxFlex matInput id="confirm_password"
+              name="confirm_password"
               placeholder="Confirme sua senha"
               type="password"
               formControleName="confirm_passwd">
@@ -70,12 +71,14 @@
           </mat-form-field>
         </div>
         </div>
-        {{(user | json)}}
+         Form Status: {{ formRegister.status }}
+         Form Status: {{ formRegister.erros }}
+         Name Status: {{formRegister.controls.name.errors | json}}
     </mat-card-content>
       <mat-card-actions fxLayout="row wrap" fxLayout.lt-sm="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
           <button fxFlex mat-raised-button color="primary"
-            type="submit" [disabled]="formRegister.status === 'INVALID'">
-              <mat-icon>home_outline</mat-icon> Login</button>
+            type="submit">
+              <mat-icon>check</mat-icon> Register</button>
 
           <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Sobre Nós</button>
           <button fxFlex mat-raised-button color="primary" (click)="register()">Registre-se</button>
