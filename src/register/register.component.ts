@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
   errors = {
     passwd: false,
   }
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+      private router: Router) { }
 
   ngOnInit() {
   }
@@ -33,5 +35,10 @@ export class RegisterComponent implements OnInit {
     console.dir(this.formRegister.value);
     console.dir(this.formRegister.controls.name.errors);
   }
+
+  goBack() {
+    this.router.navigate([`home`]);
+  }
+
 
 }
