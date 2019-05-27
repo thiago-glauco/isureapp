@@ -79,4 +79,16 @@ export class AuthService {
       }
     )
   }
+
+  createUser(email, password) {
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then( (result) => {
+        console.log("criando usuário: ")
+        console.dir(result)
+      })
+      .catch( (error) => {
+        console.log("erro ao criar usuário: ");
+        console.dir(error)
+      });
+  }
 }

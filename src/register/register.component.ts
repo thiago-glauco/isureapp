@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,17 +21,20 @@ export class RegisterComponent implements OnInit {
   errors = {
     passwd: false,
   }
-  constructor(private fb: FormBuilder,
-      private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
     if( this.formRegister.controls.passwd.value !== this.formRegister.controls.confirm_passwd.value) {
-      this.errors.passwd = true
+      this.errors.passwd = true;
     } else {
-      this.errors.passwd = false
+      this.errors.passwd = false;
+      this.authService.createUser( this.formRegister.controls.email.value, this.formRegister.controls.passwd.value);
     }
     console.dir(this.formRegister.value);
     console.dir(this.formRegister.controls.name.errors);
