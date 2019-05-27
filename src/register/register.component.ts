@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   formRegister = this.fb.group({
-    name: [this.authService.user.name,
-      [Validators.required, Validators.minLength(5), Validators.maxLength(100), Validators.pattern('[a-zA-Z ]*')]],
-    cpf: [this.authService.user.cpf, [Validators.required, Validators.minLength(8), Validators.maxLength(11), Validators.pattern('[0-9 ]*')]],
-    cel: [this.authService.user.cel, [Validators.required, Validators.minLength(8), Validators.maxLength(15), Validators.pattern('[0-9 ]*')]],
-    email: [this.authService.user.email, [Validators.required, Validators.minLength(4)]],
+    name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100), Validators.pattern('[a-zA-Z ]*')]],
+    cpf: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(11), Validators.pattern('[0-9 ]*')]],
+    cel: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(15), Validators.pattern('[0-9 ]*')]],
+    email: ['', [Validators.required, Validators.minLength(4)]],
     passwd: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
     confirm_passwd: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
   });
@@ -36,9 +35,12 @@ export class RegisterComponent implements OnInit {
       this.errors.passwd = true;
     } else {
       this.errors.passwd = false;
+      this.authService.user.name = this.formRegister.controls.name.value;
+      this.authService.user.cpf = this.formRegister.controls.cpf.value;
+      this.authService.user.cel = this.formRegister.controls.cel.value;
       registrationResult = this.authService.createUser( this.formRegister.controls.email.value, this.formRegister.controls.passwd.value)
       .then( (result) => {
-        
+        this.router.navigate([``])
       })
       .catch((error) => alert("Não foi possível registrar este usuário: " + JSON.stringify(error)));
     }
