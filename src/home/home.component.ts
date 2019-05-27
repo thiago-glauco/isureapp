@@ -22,8 +22,15 @@ export class HomeComponent implements OnInit {
     if( signedUser ) {
       console.log("User is signed");
       console.dir( signedUser );
-      
-      
+      this.userAuth.user.uid = signedUser.uid;
+      this.userAuth.user.email = signedUser.email;
+      this.userAuth.user.lastSignIn = signedUser.metadata.lastSignInTime;
+      this.userAuth.user.creationTime = signedUser.metadata.creationTime;
+      this.userAuth.userDataService.getUserData(signedUser.uid)
+        .subscribe( (data) =>{
+          this.userAuth.getCurrentUserData( data )
+          this.router.navigate([`/user-home`])
+        });
     } else {
       console.log("there is no user signed");
     }

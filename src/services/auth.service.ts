@@ -16,7 +16,7 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
     private router: Router,
-    private userDataService: UserDataService
+    public userDataService: UserDataService
   ) { }
 
   isUserSignedIn( ) {
