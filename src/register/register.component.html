@@ -19,7 +19,7 @@
             <input matInput id="name"
             placeholder="Informe seu nome completo"
               formControlName="name">
-            <mat-icon matPrefix >user</mat-icon>
+            <mat-icon matPrefix >person</mat-icon>
 
           </mat-form-field>
           <mat-form-field>
@@ -28,10 +28,10 @@
               placeholder="Informe seu CPF"
               type="number"
               formControlName="cpf">
-            <mat-icon matPrefix >lock</mat-icon>
+            <mat-icon matPrefix >account_box</mat-icon>
 
           </mat-form-field>
-          <mat-error *ngIf='error'>Usuário ou senha informados são inválidos</mat-error>
+
           <mat-form-field>
             <input matInput id="cel"
               name="cel"
@@ -39,6 +39,33 @@
               type="text"
               formControleName="cel">
             <mat-icon matPrefix >phone</mat-icon>
+
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput id="email"
+              name="email"
+              placeholder="Informe um email válido"
+              type="email"
+              formControleName="email">
+            <mat-icon matPrefix >email</mat-icon>
+
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput id="password"
+              name="password"
+              placeholder="Crie uma senha"
+              type="password"
+              formControleName="passwd">
+            <mat-icon matPrefix >lock</mat-icon>
+
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput id="password"
+              name="password"
+              placeholder="Confirme sua senha"
+              type="password"
+              formControleName="confirm_passwd">
+            <mat-icon matPrefix >lock</mat-icon>
 
           </mat-form-field>
         </div>
