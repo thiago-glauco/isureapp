@@ -47,4 +47,8 @@ export class HomeComponent implements OnInit {
       })
   }
 
+  register() {
+    this.router.navigate([`register`]);
+  }
+
 }

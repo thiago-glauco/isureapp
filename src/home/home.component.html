@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="1%" fxLayoutAlign="center center">
+<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="1%" fxLayoutAlign="center center" >
   <form #loginForm='ngForm' (ngSubmit)="login()">
   <mat-card>
     <mat-card-header>
@@ -55,9 +55,10 @@
               <mat-icon>home_outline</mat-icon> Login</button>
 
           <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Sobre Nós</button>
-          <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Registre-se</button>
+          <button fxFlex mat-raised-button color="primary" (click)="register()">Registre-se</button>
           <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Contato</button>
       </mat-card-actions>
   </mat-card>
   </form>
+
 </div>
