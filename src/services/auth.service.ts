@@ -50,6 +50,7 @@ export class AuthService {
     if( data.length ) {
       this.userData.key = data[0].key;
       this.userData.payload = data[0].payload.val();
+      this.user.name = this.userData.payload.name
       this.user.cel = this.userData.payload.cel;
       this.user.cpf = this.userData.payload.cpf;
       //yes, we have user data

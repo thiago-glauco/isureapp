@@ -25,4 +25,8 @@ export class UserHomeComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
+  goToIsurePlans() {
+    this.router.navigate(['/plans']);
+  }
+
 }
