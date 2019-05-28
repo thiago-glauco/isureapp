@@ -84,8 +84,6 @@ export class AuthService {
     )
   }
 
-
-
   createUser(email, password) {
     console.log("user to be created: ")
     console.dir(this.user)
