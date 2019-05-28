@@ -102,11 +102,13 @@ export class AuthService {
         //salva dados do usuário no banco de dados do usuário
         this.userData.key = this.userDataService.createUserData(this.user);
         this.userData.payload = this.user;
+        return credential;
       })
       .catch( (error) => {
         console.log("erro ao criar usuário: ");
         console.dir(error);
-        alert("Não foi possível registrar este usuário: " + JSON.stringify(error))
+        alert("Não foi possível registrar este usuário: " + JSON.stringify(error));
+        return error;
       });
   }
 }

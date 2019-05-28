@@ -27,6 +27,22 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit() {
+    let signedUser = this.authService.isUserSignedIn();
+    if( signedUser ) {
+      console.log("User is signed");
+      console.dir( signedUser );
+      this.authService.user.uid = signedUser.uid;
+      this.authService.user.email = signedUser.email;
+      this.authService.user.lastSignIn = signedUser.metadata.lastSignInTime;
+      this.authService.user.creationTime = signedUser.metadata.creationTime;
+      this.authService.userDataService.getUserData(signedUser.uid)
+        .subscribe( (data) =>{
+          this.authService.getCurrentUserData( data )
+          this.router.navigate([`/user-home`])
+        });
+    } else {
+      console.log("there is no user signed");
+    }
   }
 
   onSubmit() {
@@ -40,7 +56,13 @@ export class RegisterComponent implements OnInit {
       this.authService.user.cel = this.formRegister.controls.cel.value;
       registrationResult = this.authService.createUser( this.formRegister.controls.email.value, this.formRegister.controls.passwd.value)
       .then( (result) => {
-        this.router.navigate([`/user-home`])
+        if( result.user.email ) {
+          console.log("Result is: ");
+          console.dir(result);
+          this.router.navigate([`/user-home`])
+        } else {
+         alert("Não foi possível registrar este usuário.");
+        }
       })
       .catch((error) => alert("Não foi possível registrar este usuário: " + JSON.stringify(error)));
     }
