@@ -13,7 +13,8 @@
     </mat-card-header>
     <mat-card-content>
       <div fxLayout.xs="column" fxLayout="row" fxLayoutGap="5px">
-        <img src="https://media.istockphoto.com/photos/medical-technology-concept-electronic-medical-record-picture-id872676342" mat-card-lg-image>
+        <img fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2F16579602.jpg?alt=media&token=0ecaa3c9-5559-4c9c-9d67-6fb355f6fe8f" mat-card-lg-image>
+        <!--<img src="https://media.istockphoto.com/photos/medical-technology-concept-electronic-medical-record-picture-id872676342" mat-card-lg-image>-->
         <div fxLayout="column" >
         <mat-form-field>
             <input matInput id="loginMail"
@@ -56,7 +57,7 @@
             type="submit" [disabled]="loginForm.status === 'INVALID'">
               <mat-icon>home_outline</mat-icon> Login</button>
 
-          <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Sobre Nós</button>
+          <button fxFlex mat-raised-button color="primary" (click)="about( )">Sobre Nós</button>
           <button fxFlex mat-raised-button color="primary" (click)="register()">Registre-se</button>
           <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Contato</button>
       </mat-card-actions>

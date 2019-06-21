@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { HomeComponent } from '../../home/home.component';
+import { AboutComponent } from '../../about/about.component';
 import { UserHomeComponent } from '../../user-home/user-home.component';
 import { RegisterComponent } from '../../register/register.component';
 import { ISurePlansComponent } from '../../isure-plans/isure-plans.component';
@@ -16,5 +17,6 @@ export const routes: Routes = [
   { path: 'plans', component: ISurePlansComponent },
   { path: 'card',     component: OperatorsCardComponent },
   { path: 'calc', component: CalculationCardComponent},
+  { path: 'about', component: AboutComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];

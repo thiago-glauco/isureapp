@@ -30,6 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { HomeComponent } from '../home/home.component';
+import { AboutComponent } from '../about/about.component';
 import { ISurePlansComponent } from '../isure-plans/isure-plans.component';
 import { OperatorsCardComponent } from '../operators-card/operators-card.component';
 import 'hammerjs';
@@ -74,7 +75,8 @@ import { RegisterComponent } from '../register/register.component';
     OperatorsCardComponent,
     CalculationCardComponent,
     UserHomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    AboutComponent
   ],
   providers:  [
     ISurePlansService,

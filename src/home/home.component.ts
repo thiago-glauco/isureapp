@@ -59,4 +59,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`register`]);
   }
 
+  about() {
+    this.router.navigate([`about`]);
+  }
+
 }
