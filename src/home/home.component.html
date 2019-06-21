@@ -3,13 +3,9 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title-group>
-
-        <mat-card-title color="">
-          <span>Olá. Você está na {{CompanyName}}.</span>
-        </mat-card-title>
-        <mat-card-subtitle>
-          <span>Você deve efetuar o login ou se cadastrar</span>
-        </mat-card-subtitle>
+        <img mat-card-avatar src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fcoracao.jpg?alt=media&token=a50c2242-9038-40cd-bdbc-f5a299d1c0ee">
+        <mat-card-title>ISure</mat-card-title>
+        <mat-card-subtitle>Consultoria em seguros e benefícios</mat-card-subtitle>
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
@@ -17,6 +13,7 @@
         <img fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fmed_tools.jpg?alt=media&token=7afcbc61-a865-4f3f-b91c-b9899d41e89c" mat-card-lg-image>
         <!--<img src="https://media.istockphoto.com/photos/medical-technology-concept-electronic-medical-record-picture-id872676342" mat-card-lg-image>-->
         <div fxLayout="column" >
+        <p matLine>Você deve efetuar o login ou se cadastrar para utilizar este aplicativo</p>
         <mat-form-field>
             <input matInput id="loginMail"
               name="email"
@@ -59,9 +56,9 @@
             type="submit" [disabled]="loginForm.status === 'INVALID'">
               <mat-icon>home_outline</mat-icon> Login</button>
 
-          <button fxFlex mat-raised-button color="primary" (click)="about( )">Sobre Nós</button>
-          <button fxFlex mat-raised-button color="primary" (click)="register()">Registre-se</button>
-          <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')">Contato</button>
+          <button fxFlex mat-raised-button color="primary" (click)="about( )"><mat-icon>supervisor_account</mat-icon>Sobre Nós</button>
+          <button fxFlex mat-raised-button color="primary" (click)="register()"><mat-icon>assignment</mat-icon>Registre-se</button>
+          <button fxFlex mat-raised-button color="primary" (click)="alert('Hello')"><mat-icon>forum</mat-icon>Fale Conosco</button>
       </mat-card-actions>
   </mat-card>
   </form>

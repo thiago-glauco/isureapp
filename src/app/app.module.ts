@@ -36,7 +36,7 @@ import { OperatorsCardComponent } from '../operators-card/operators-card.compone
 import 'hammerjs';
 import { LifesInfoComponent } from './lifes-info/lifes-info.component';
 import { HeaderComponent } from './header/header.component';
-
+import { FaleConoscoComponent } from '../fale-conosco/fale-conosco.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { CalculationCardComponent } from './calculation-card/calculation-card.component';
 import { UserHomeComponent } from '../user-home/user-home.component';
@@ -76,6 +76,7 @@ import { RegisterComponent } from '../register/register.component';
     CalculationCardComponent,
     UserHomeComponent,
     RegisterComponent,
+    FaleConoscoComponent,
     AboutComponent
   ],
   providers:  [
