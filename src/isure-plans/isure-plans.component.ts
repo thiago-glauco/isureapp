@@ -5,6 +5,8 @@ import { isurePlans } from '../common/isurePlans';
 import {ISurePlansService} from '../services/isure-plans.service';
 import { Operadora } from '../common/operadora';
 import { OPERADORAS } from '../common/operadoras';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-isure-plans',
@@ -13,12 +15,19 @@ import { OPERADORAS } from '../common/operadoras';
 })
 
 export class ISurePlansComponent implements OnInit {
+
   isureplans: ISurePlan[];
   operadoras = OPERADORAS;
   operadoraSelecionada: Operadora;
 
   constructor(private isurePlansService: ISurePlansService) { }
   ngOnInit() {
-    this.isureplans = this.isurePlansService.getPlans();
+   this.isurePlansService.getPlans().subscribe(
+      result => {
+        console.log("isure plans: ");
+        console.dir(result)
+        this.isureplans = result;
+      }
+    )
   }
 }

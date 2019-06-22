@@ -10,7 +10,7 @@ export class UserDataService {
   userRef: AngularFireList<User>;
   user: Observable<any>;
 
-  constructor( private userDB: AngularFireDatabase) {
+  constructor( private userDB: AngularFireDatabase ) {
     this.usersRef = this.userDB.list('/users');
   }
 
