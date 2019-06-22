@@ -1,4 +1,4 @@
-<div fxFlex="ba" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="1%" fxLayoutAlign="center center" >
+<div fxFlex="100%" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="1%" fxLayoutAlign="center center" >
   <form #loginForm='ngForm' (ngSubmit)="login()">
   <mat-card >
     <mat-card-header>
@@ -9,9 +9,9 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <div fxLayout.xs="column" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center">
-        <img fxHide.gt-xs fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fmed_tools.jpg?alt=media&token=7afcbc61-a865-4f3f-b91c-b9899d41e89c" mat-card-lg-image>
-        <img fxHide.xs fxFlex="40%" fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fmed_tools.jpg?alt=media&token=7afcbc61-a865-4f3f-b91c-b9899d41e89c" mat-card-image>
+      <div fxFlex fxLayout.xs="column" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center">
+        <img fxFlex fxHide.gt-xs fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fmed_tools.jpg?alt=media&token=7afcbc61-a865-4f3f-b91c-b9899d41e89c" mat-card-lg-image>
+        <img fxFlex fxHide.xs fxFlex="40%" fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fmed_tools.jpg?alt=media&token=7afcbc61-a865-4f3f-b91c-b9899d41e89c" mat-card-image>
         <!--<img src="https://media.istockphoto.com/photos/medical-technology-concept-electronic-medical-record-picture-id872676342" mat-card-lg-image>-->
         <div fxFlex="30%" fxLayout="column" >
         <p matLine>Você deve efetuar o login ou se cadastrar para utilizar este aplicativo</p>
