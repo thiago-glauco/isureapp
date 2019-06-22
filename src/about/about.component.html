@@ -9,15 +9,17 @@
   </mat-card-header>
   <mat-card-content>
     <div fxLayout.xs="column" fxLayout="row" fxLayoutGap="5px">
-      <img fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fabout.jpg?alt=media&token=037aa549-4935-4ca3-8006-fbefa1aba984" mat-card-lg-image>
-      <p matLine><b>QUEM SOMOS</b></p>
-      <p matLine>A iSURE é uma corretora de seguros completa, criada para ser a escolha mais inteligente em benefícios como plano de saúde, odontológico e seguro de vida.</p>
-      <p matLine>Com soluções inovadoras, atendimento diferenciado e excelente relação custo-benefício.</p>
-      <p matLine><b>MISSÃO</b></p>
-      <p matLine>Prestar consultoria em gestão de benefícios com foco na prevenção, promovendo a saúde e a qualidade de vida de forma exclusiva.</p>
+      <img fxFlex.gt-xs="33%" fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fabout.jpg?alt=media&token=037aa549-4935-4ca3-8006-fbefa1aba984" mat-card-image>
+      <div fxLayout="column" >
+        <p matLine><b>QUEM SOMOS</b></p>
+        <p matLine>A iSURE é uma corretora de seguros completa, criada para ser a escolha mais inteligente em benefícios como plano de saúde, odontológico e seguro de vida.</p>
+        <p matLine>Com soluções inovadoras, atendimento diferenciado e excelente relação custo-benefício.</p>
+        <p matLine><b>MISSÃO</b></p>
+        <p matLine>Prestar consultoria em gestão de benefícios com foco na prevenção, promovendo a saúde e a qualidade de vida de forma exclusiva.</p>
+      </div>
     </div>
   </mat-card-content>
-<mat-card-actions>
+<mat-card-actions fxLayout="row wrap" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
   <button fxFlex mat-raised-button color="primary" (click)="goBack()"><mat-icon>chevron_left</mat-icon> Voltar</button>
   <button fxFlex mat-raised-button color="primary" (click)="fale()"><mat-icon>forum</mat-icon> Fale Conosco</button>
 </mat-card-actions>

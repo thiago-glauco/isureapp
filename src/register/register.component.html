@@ -3,18 +3,19 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title-group>
-        <mat-card-title color="">
-          <span>Registre-se</span>
-        </mat-card-title>
+        <img mat-card-avatar src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fcoracao.jpg?alt=media&token=a50c2242-9038-40cd-bdbc-f5a299d1c0ee">
+        <mat-card-title>ISure - Página de registro</mat-card-title>
+        <mat-card-subtitle>Consultoria em seguros e benefícios</mat-card-subtitle>
         <mat-card-subtitle>
-          <span>Após o registro você terá acesso aos planos de saúde mais competitivos do mercado.</span>
+         Após o registro você terá acesso aos planos de saúde mais competitivos do mercado.
         </mat-card-subtitle>
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
       <div fxLayout.xs="column" fxLayout="row" fxLayoutGap="5px">
-        <img src="https://media.istockphoto.com/photos/medical-technology-concept-electronic-medical-record-picture-id872676342" mat-card-lg-image>
-        <div fxLayout="column" >
+        <img fxHide.gt-xs fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fregister.jpg?alt=media&token=fb09c8e1-2ef5-43b1-8d6e-85295d74e840" mat-card-lg-image>
+        <img fxHide.xs fxFlex.gt-xs="20%" fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fregister.jpg?alt=media&token=fb09c8e1-2ef5-43b1-8d6e-85295d74e840" mat-card-image>
+        <div fxFlex fxLayout="column" >
         <mat-form-field>
             <input fxFlex matInput id="name"
               placeholder="Informe seu nome completo"
@@ -75,10 +76,12 @@
           <mat-error *ngIf="errors.passwd">Senha e confirmação de senha devem ser idênticas.</mat-error>
         </div>
         </div>
+        <!--
         <mat-error>TODO: TERMOS DE USO e Remover informação de debug</mat-error>
          Form Status: {{ formRegister.status }}
          Form Status: {{ formRegister.erros }}
          Name Status: {{formRegister.controls.name.errors | json}}
+         -->
     </mat-card-content>
       <mat-card-actions fxLayout="row wrap" fxLayout.lt-sm="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
           <button fxFlex mat-raised-button color="primary"
