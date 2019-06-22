@@ -16,7 +16,7 @@ export const isurePlans: ISurePlan[] = [
   {
     "id": "2",
     "name": "Executivo",
-    "description": "A ISure entende perfeitamente as necessidades de mobilidade, tempo e a necessidade de conforto e privacidade que a vida impõem a empresários e executivos. Por isso, temos aqui planos com redes de atendimento em todo Brasil e internações realizadas em quartos, para que você possa realizar suas viagens profissionais ou de lazer com a tranquilidade de quem sabe que está .Planos destinados a empresários e executivos",
+    "description": "A ISure entende perfeitamente as necessidades de mobilidade, tempo e a necessidade de conforto e privacidade que a vida impõem a empresários e executivos. Por isso, temos aqui planos com redes de atendimento em todo Brasil e internações realizadas em quartos, para que você possa realizar suas viagens profissionais ou de lazer com a tranquilidade de quem sabe que está protegido de qualquer eventualidade. Estes planos fornecem atendimento conforme regramento pela ANS. Planos destinados a empresários e executivos",
     "image": "https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fexecutivo.jpg?alt=media&token=44d7b2e8-8b3e-4539-9514-2d07b078e081"
   }
 ]
