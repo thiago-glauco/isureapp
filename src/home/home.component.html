@@ -13,7 +13,7 @@
         <img fxFlex fxHide.gt-xs fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fmed_tools.jpg?alt=media&token=7afcbc61-a865-4f3f-b91c-b9899d41e89c" mat-card-lg-image>
         <img fxFlex fxHide.xs fxFlex="40%" fxFlexAlign="center" src="https://firebasestorage.googleapis.com/v0/b/isureapp-17148.appspot.com/o/AppImages%2Fmed_tools.jpg?alt=media&token=7afcbc61-a865-4f3f-b91c-b9899d41e89c" mat-card-image>
         <!--<img src="https://media.istockphoto.com/photos/medical-technology-concept-electronic-medical-record-picture-id872676342" mat-card-lg-image>-->
-        <div fxFlex="30%" fxLayout="column" >
+        <div fxFlex.xs fxFlex.gt-xs="30%" fxLayout="column" >
         <p matLine>Você deve efetuar o login ou se cadastrar para utilizar este aplicativo</p>
         <mat-form-field>
             <input matInput id="loginMail"
@@ -52,7 +52,7 @@
         <mat-error>TODO: Botão para usuário visualizar a senha digitada</mat-error>
         {{(user | json)}} -->
     </mat-card-content>
-      <mat-card-actions fxLayout="row wrap" fxLayout.lt-sm="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
+      <mat-card-actions fxLayout.x="row wrap" fxLayout.gt-xs="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
           <button fxFlex mat-raised-button color="primary"
             type="submit" [disabled]="loginForm.status === 'INVALID'">
               <mat-icon>home_outline</mat-icon> Login</button>
