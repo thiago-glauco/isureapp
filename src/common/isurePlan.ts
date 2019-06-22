@@ -1,5 +1,5 @@
 export class ISurePlan {
-  id: Number;
+  id: String;
   name: String;
   description: String;
   image: String;
