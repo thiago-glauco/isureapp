@@ -9,13 +9,18 @@ import { Location } from '@angular/common';
 })
 export class AboutComponent implements OnInit {
 
-  constructor( private location: Location ) { }
+  constructor( private location: Location,
+    private router: Router ) { }
 
   ngOnInit() {
   }
 
-  goack() {
+  goBack() {
     this.location.back();
+  }
+
+  fale() {
+    this.router.navigate([`fale`]);
   }
 
 }
