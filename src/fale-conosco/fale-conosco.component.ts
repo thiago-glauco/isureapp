@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-fale-conosco',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaleConoscoComponent implements OnInit {
 
-  constructor() { }
+  constructor( private location: Location,
+    private router: Router ) { }
 
   ngOnInit() {
+
+  }
+
+  goBack() {
+    this.location.back( )
   }
 
 }
