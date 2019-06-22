@@ -52,7 +52,7 @@
         <mat-error>TODO: Botão para usuário visualizar a senha digitada</mat-error>
         {{(user | json)}} -->
     </mat-card-content>
-      <mat-card-actions fxflex fxLayout.xs="row wrap" fxLayout.gt-xs="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
+      <mat-card-actions fxflex fxLayout.gt-xs="row wrap" fxLayout.xs="column" fxFlexWrap fxLayoutAlign="space-between space-around" fxLayoutGap="5px">
           <button fxFlex mat-raised-button color="primary"
             type="submit" [disabled]="loginForm.status === 'INVALID'">
               <mat-icon>home_outline</mat-icon> Login</button>
