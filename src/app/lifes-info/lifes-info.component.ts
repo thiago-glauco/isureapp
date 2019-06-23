@@ -53,7 +53,6 @@ export class LifesInfoComponent implements OnInit {
   }
   calc( ) {
     this.calculation.saveCalc(this.calcObject);
-
   }
 
 }

@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { CalculationService } from '../../services/calculation.service';
 import { OperatorsPlansService } from '../../services/operators-plans.service';
 import { Plano } from '../../common/plano';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-calculation-card',
@@ -22,12 +23,18 @@ export class CalculationCardComponent implements OnInit {
       private calculationService: CalculationService,
       private operatorsPlansService: OperatorsPlansService
     ) { 
-
+      console.dir(this.calculationService.getResult());
     }
 
   ngOnInit( ) {
-  
+    this.operatorsPlansService.getPlansByCategoryAndoperator("Essencial","Amil")
+    .subscribe(
+      (result) => {console.log("the result is"); console.dir(result)}
+    )
+      
   }
+
+  
     /*
     for(let life of this.calculationData.lifes) {
       if( life.age || life.age === 0) {

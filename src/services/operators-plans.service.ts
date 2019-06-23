@@ -20,4 +20,14 @@ export class OperatorsPlansService {
     return this.planosRef.valueChanges();
   }
 
+  getPlansByCategoryAndoperator( category, operator ): Observable<{}[]> {
+    return this.plansDB.list('/Operadoras', 
+      ref => ref.orderByChild('category').equalTo(category)).valueChanges()
+        .pipe(
+          map( (element) => {
+            console.dir(element);
+            return element} )
+        )
+  }
+
 }
