@@ -27,7 +27,7 @@ export class CalculationCardComponent implements OnInit {
     }
 
   ngOnInit( ) {
-    this.operatorsPlansService.getPlansByCategoryAndoperator("Essencial","Amil")
+    this.operatorsPlansService.getPlansByCategoryAndoperator("Conf","Amil")
     .subscribe(
       (result) => {console.log("the result is"); console.dir(result)}
     )
