@@ -12,9 +12,10 @@ import {CalculationService} from '../../services/calculation.service';
   styleUrls: ['./lifes-info.component.css']
 })
 export class LifesInfoComponent implements OnInit {
-  MAX_LIFES = 6;
-  selectedLifes;
-  lifes = [
+  @Input() isurePlan; //Entrada do objeto pai. Tipo do plano isure
+  MAX_LIFES = 6; //Max de seis vidas, limite para este app.
+  selectedLifes; //Número de vidas desejadas
+  lifes = [ //Objeto que contém as idades das vidas
     {id: 1, age: ''},
     {id: 2, age: ''},
     {id: 3, age: ''},
@@ -22,10 +23,13 @@ export class LifesInfoComponent implements OnInit {
     {id: 5, age: ''},
     {id: 6, age: ''}
   ];
-  operadoras: Operadora[] = OPERADORAS;
-  operadoraSelecionada: Operadora;
-  calcObject = {
+
+  operadoras: Operadora[] = OPERADORAS; //lista de operadoras. Arquivo interno
+  operadoraSelecionada: Operadora; //Operadora selecionada
+
+  calcObject = { //Objeto a ser enviado para o serviço de cálculo
         'lifes': [],
+        isurePlan: '',
         operadora: {}
     };
   
@@ -41,6 +45,7 @@ export class LifesInfoComponent implements OnInit {
 
   change() {
     this.calcObject.operadora = this.operadoraSelecionada;
+    this.calcObject.isurePlan = this.isurePlan;
     this.calc()
     console.log(this.calcObject);
     console.log(this.calculation.getResult());

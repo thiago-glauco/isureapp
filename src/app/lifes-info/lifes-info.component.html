@@ -15,7 +15,6 @@
   <mat-step label="Idades">
     <p>Planos de saúde tem seu preço definido pelas idades de seus protegidos.</p>
     <p>Informe a idade dos protegidos:</p>
-    <p>{{lifes[0].id}}</p>
   <mat-form-field fxFlex [fxHide]="selectedLifes >= 1 ? 'false' : 'true'">
     <input matInput type="number" name="life1" placeholder="Informe a Idade da vida 1" [(ngModel)]="lifes[0].age" (change)="change()">
   </mat-form-field>
