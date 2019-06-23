@@ -22,6 +22,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 
 import { ISurePlansService } from '../services/isure-plans.service';
+import { OperatorsPlansService } from '../services/operators-plans.service';
+
 import { CalculationService } from '../services/calculation.service';
 import { AuthService } from '../services/auth.service';
 import { UserDataService } from '../services/user-data.service';
@@ -83,7 +85,8 @@ import { RegisterComponent } from '../register/register.component';
     ISurePlansService,
     CalculationService,
     AuthService,
-    UserDataService
+    UserDataService,
+    OperatorsPlansService
   ],
   bootstrap:    [ AppComponent ]
 })

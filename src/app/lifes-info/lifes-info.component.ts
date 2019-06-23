@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Operadora } from '../../common/operadora';
 import { OPERADORAS } from '../../common/operadoras';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {CalculationService} from '../../services/calculation.service';
@@ -36,6 +36,7 @@ export class LifesInfoComponent implements OnInit {
   constructor(
       private location: Location,
       private calculation: CalculationService,
+      private router: Router
     ) { 
       this.calcObject.lifes = this.lifes;
   }
@@ -52,6 +53,7 @@ export class LifesInfoComponent implements OnInit {
   }
   calc( ) {
     this.calculation.saveCalc(this.calcObject);
+
   }
 
 }

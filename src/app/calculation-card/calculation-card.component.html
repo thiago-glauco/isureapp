@@ -1,24 +1,3 @@
 
-<!--<p>O valor do plano será {{finalData | json}}</p>-->
-<mat-accordion>
-<mat-expansion-panel *ngFor="let plan of finalData" class="card">
-  <mat-expansion-panel-header >
-    <mat-panel-title >
-      {{plan.plan | uppercase}} por Apenas R${{plan.valor}} 
-    </mat-panel-title>
-  </mat-expansion-panel-header>
-  <div fxLayout="row wrap">
-  <p matLine fxFlex="100%">Aqui vem a descrição do plano</p>
-    <div fxFlex fxLayout.xs="column" fxLayout.gt-xs="row wrap" fxLayoutGap="5px">
-      <a mat-raised-button fxFlex color="primary" ><mat-icon>check</mat-icon>Adquirir</a>
-      <a mat-raised-button fxFlex  color="primary" ><mat-icon>more_horiz</mat-icon>Mais info</a>
-      <a mat-raised-button fxFlex color="accent" ><mat-icon>picture_as_pdf</mat-icon>Ver Contrato</a>
-      <a mat-raised-button fxFlex c ><mat-icon>phone</mat-icon>Falar com a ISure</a>
-    </div>
-  </div>
-  <mat-action-row fxLayout.xs="column" fxLayoutGap.xs="5px">
-  <button mat-raised-button (click)="goBack()"><mat-icon>chevron_left</mat-icon>Refazer Orçamento</button>
-  </mat-action-row>
-</mat-expansion-panel>
-</mat-accordion>
+<p>{{planos | json}}</p>
 

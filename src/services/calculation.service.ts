@@ -5,22 +5,10 @@ import {FAIXA_ETARIA} from '../common/faixa-etaria';
 import {Faixa} from '../common/faixa';
 import { Plano } from '../common/plano';
 
-const PLANOS: Plano[] = [
-  {
-    id: 1,
-    category: 'Executivo',
-    name: 'Bradesco01',
-    operator: 'Bradesco',
-    description: "O plano mais foda do Bradesco com direito a quarto",
-    lifeTable: FAIXA_ETARIA,
-  }
-]
-
 var planToCalc: any[] = [];
+
 @Injectable()
 export class CalculationService {
-
-  
 
   constructor() { }
 
