@@ -1,20 +1,25 @@
-
+<div fxFlex fxLayout="column">
 <mat-accordion>
 <mat-expansion-panel *ngFor="let plan of isureplans" class="card">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{plan.name}}
+      ISure {{plan.name}}
     </mat-panel-title>
   </mat-expansion-panel-header>
-  <div fxLayout.xs="column" fxLayout.gt-xs="row" fxLayoutGap="10px">
-    <img fxFlex fxFlex.gt-sm="50%" [src]="plan.image" alt="plan image"/>
-    <div fxFlex fxLayout="column">
-      <p matLine>{{plan.description}}</p>
-      <app-lifes-info></app-lifes-info>
-    </div>
-  </div>
-  <mat-action-row>
-    <a mat-raised-button color="primary" *ngIf="operadoraSelecionada" routerLink='/card'><mat-icon>attach_money</mat-icon>Valores</a>
-  </mat-action-row>
+  <mat-card>
+    <mat-card-content>
+      <div fxLayout.xs="column" fxLayout.gt-xs="row" fxLayoutGap="10p">
+        <img fxFlex fxFlex.gt-xs="50%" [src]="plan.image" alt="plan image" mat-card-image/>
+        <div fxFlex fxFlex.gt-xs="50%" fxLayout="column">
+          <p matLine>{{plan.description}}</p>
+          <app-lifes-info></app-lifes-info>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-raised-button color="primary" *ngIf="operadoraSelecionada" routerLink='/card'><mat-icon>attach_money</mat-icon>Valores</a>
+    </mat-card-actions>
+  </mat-card>
 </mat-expansion-panel>
 </mat-accordion>
+</div>
